@@ -1,0 +1,66 @@
+package com.jersey.friends.controller;
+
+import java.util.List;
+
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.MatrixParam;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import com.jersey.friends.pojo.Friend;
+import com.jersey.friends.service.FriendsCollectionService;
+
+@Path("/friends")
+public class FriendsController {
+	//CRUD
+	
+	FriendsCollectionService friendsCollectionService= new FriendsCollectionService();
+	
+	//get list of all friends
+	@GET 
+	@Path("/getAll")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List getAllFriends()
+	{
+		List allFriends = friendsCollectionService.getAllFriends();
+		return allFriends;
+	}
+
+	//get the friend by id
+	@GET
+	@Path("/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Friend getFriendById(@PathParam("id") int id)
+	{
+		Friend f=friendsCollectionService.getFriendById(id);
+		return f;
+		
+	}
+	
+	//update the friend
+	@POST
+	@Path("/update")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Friend> updateFriend(Friend friend){
+		List<Friend> f = friendsCollectionService.updateFriend(friend);
+		//System.out.println("Friend is updated: " + f.getName());
+		//List<Friend> allfriends = friendsCollectionService.getAllFriends();
+		return f;
+	}
+	
+	//delete the friend
+	@DELETE
+	@Path("/delete")
+	@Produces(MediaType.APPLICATION_JSON)
+	public void deleteFriend(@MatrixParam("id") int id)
+	{
+		friendsCollectionService.deleteFriend(id);
+		List<Friend> f=friendsCollectionService.getAllFriends();
+		return 
+		
+	}
+}

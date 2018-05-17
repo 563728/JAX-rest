@@ -1,0 +1,25 @@
+package com.restclient.first;
+
+import java.net.URI;
+
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.core.Configuration;
+import javax.ws.rs.core.UriBuilder;
+
+import org.glassfish.jersey.client.ClientConfig;
+
+public class DemoRestClient {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ClientConfig config=new ClientConfig();
+		Client client= ClientBuilder.newClient((Configuration) config);
+		
+	}
+
+	private static URI getCustomerURI()
+	{
+		return UriBuilder.fromUri("localhost:8080/JavaRestServices/rest/first/welcome") ;
+	}
+}

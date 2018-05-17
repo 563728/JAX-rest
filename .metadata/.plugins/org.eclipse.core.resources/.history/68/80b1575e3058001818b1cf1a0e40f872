@@ -1,0 +1,17 @@
+package com.jersey.first.controller;
+
+public class RestController {
+	//CRUD
+	
+	//get list of all friends
+	public void getAllFriends()
+	{
+		
+	}
+
+	//update the friend
+	public void getFriendById()
+	{
+		
+	}
+}

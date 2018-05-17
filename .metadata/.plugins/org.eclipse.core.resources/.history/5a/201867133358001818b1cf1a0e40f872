@@ -1,0 +1,24 @@
+package com.jersey.friends.service;
+
+import java.util.HashMap;
+
+import com.jersey.friends.pojo.Friend;
+
+public class FriendsCollectionService {
+	
+	static HashMap<Integer,Friend> friendMap;
+
+	public FriendsCollectionService() {
+		super();
+		// TODO Auto-generated constructor stub
+		Friend f1= new Friend(1,"Shiva","Chennai");
+		Friend f2= new Friend(1,"Modi","Delhi");
+		Friend f3= new Friend(1,"Mani","Chennai");
+		Friend f4= new Friend(1,"Kamal","Chennai");
+		Friend f5= new Friend(1,"Adi","Goa");
+		
+		friendsMap
+	}
+	
+	
+}

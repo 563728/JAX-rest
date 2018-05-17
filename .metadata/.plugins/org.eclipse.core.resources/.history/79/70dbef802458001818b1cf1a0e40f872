@@ -1,0 +1,19 @@
+package com.restclient.first;
+
+import java.net.URI;
+
+import org.glassfish.jersey.client.ClientConfig;
+
+public class DemoRestClient {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ClientConfig clientConfig=new ClientConfig();
+		Client  
+	}
+
+	private static URI getCustomerURI()
+	{
+		//return ;
+	}
+}

@@ -1,0 +1,16 @@
+package com.restclient.first;
+
+import java.net.URI;
+
+public class DemoRestClient {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static URI getCustomerURI()
+	{
+		return UriBuilder.
+	}
+}

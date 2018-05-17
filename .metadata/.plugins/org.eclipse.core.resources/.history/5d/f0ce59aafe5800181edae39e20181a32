@@ -1,0 +1,26 @@
+package com.jersey.friends.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class FriendDAO {
+	
+	public FriendDAO()
+	{
+		Connection connection=null;
+		Statement statement=null;
+		PreparedStatement preparedStatement=null;
+		ResultSet resultset=null;
+				
+	}
+	
+	public connectToDatabase() throws ClassNotFoundException
+	{
+		Class.forName("com.mysql.jdbc.Driver");
+		connection = DriveManager.get
+		
+	}
+	
+}

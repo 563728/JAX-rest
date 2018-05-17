@@ -1,0 +1,5 @@
+package com.jersey.first.pojo;
+
+public class Friend {
+
+}
