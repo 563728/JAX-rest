@@ -1,0 +1,17 @@
+package com.test.services;
+
+import java.util.HashMap;
+
+public class TestServices {
+	
+	static HashMap<Integer,Test> countryMap=new HashMap<>();
+	
+	
+	
+	public void getCountries(){
+	
+		
+	}
+
+
+}

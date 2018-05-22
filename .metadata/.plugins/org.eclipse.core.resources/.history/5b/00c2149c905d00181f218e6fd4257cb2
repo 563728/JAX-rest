@@ -1,0 +1,62 @@
+package com.result.controller;
+
+import java.util.List;
+
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.MatrixParam;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import com.result.pojo.Result;
+import com.result.services.TestServices;
+
+
+@Path("/assess")
+public class ResultController {
+	
+	TestServices testServices=new TestServices();
+	
+	@GET
+	@Path("/getAll")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Result> getTests(){
+		
+		List<Result> tests=testServices.getTests();
+		return tests;
+	}
+	
+	@GET
+	@Path("/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Result getTestById(@PathParam("id") int id){
+		Result t=testServices.getTestById(id);
+		return t;
+	}
+
+	@POST
+	@Path("/add")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Result> addTests(Result test){
+		List<Result> t=testServices.addTests(test);
+		return t;
+	}
+	
+	@PUT
+	@Path("/update")
+	public List<Result> updateTests(Result test){
+		List<Result> t=testServices.updateTests(test);
+		return t;
+	}
+	
+	@DELETE
+	@Path("/delete")
+	public List<Result> deleteTests(@MatrixParam("id")int id){
+		List<Result> t=testServices.deleteTests(id);
+		return t;
+	}
+}

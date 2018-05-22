@@ -1,0 +1,43 @@
+package com.jersey.test.pojo;
+
+public class Test {
+
+	int id;
+	String testName;
+    int score;
+    
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public String getTestName() {
+		return testName;
+	}
+	public void setTestName(String testName) {
+		this.testName = testName;
+	}
+	public long getScore() {
+		return score;
+	}
+	public void setScore(int score) {
+		this.score = score;
+	}
+	public Test() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Test(int id, String testName, long score) {
+		super();
+		this.id = id;
+		this.testName = testName;
+		this.score = score;
+	}
+	
+    
+	
+
+
+}

@@ -1,0 +1,38 @@
+package com.test.services;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import com.test.pojo.Test;
+
+public class TestServices {
+	
+	static HashMap<Integer,Test> countryIdMap=new HashMap<Integer,Test>();
+	
+	
+	
+	public TestServices() {
+		super();
+		
+		   Test indiaCountry=new Test(1, "India",10000);
+		   Test chinaCountry=new Test(4, "China",20000);
+		   Test nepalCountry=new Test(3, "Nepal",8000);
+		   Test bhutanCountry=new Test(2, "Bhutan",7000);
+		 		 
+		   countryIdMap.put(1,indiaCountry);
+		   countryIdMap.put(4,chinaCountry);
+		   countryIdMap.put(3,nepalCountry);
+		   countryIdMap.put(2,bhutanCountry);
+		
+	}
+
+
+
+	public void getCountries(){
+	
+		List<Test> countries=new ArrayList<Test>(countryIdMap.values());
+	}
+
+
+}

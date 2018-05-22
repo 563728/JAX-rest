@@ -1,0 +1,11 @@
+package com.test.controller;
+
+import javax.ws.rs.Path;
+
+
+@Path("/assess")
+public class TestController {
+	
+	
+
+}

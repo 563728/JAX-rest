@@ -1,0 +1,27 @@
+package com.test.services;
+
+import java.util.HashMap;
+
+import com.test.pojo.Test;
+
+public class TestServices {
+	
+	static HashMap<Integer,Test> countryIdMap=new HashMap<Integer,Test>();
+	
+	
+	
+	public TestServices() {
+		super();
+		
+		
+	}
+
+
+
+	public void getCountries(){
+	
+		
+	}
+
+
+}

@@ -1,0 +1,61 @@
+package com.result.services;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.ws.rs.PathParam;
+
+import com.result.pojo.Result;
+
+public class ResultServices {
+	
+	static HashMap<Integer,Result> resultMap=new HashMap<Integer,Result>();
+	
+		
+	public ResultServices() {
+		super();
+		
+		   Result r1=new Result(1, "Java",80,"pass");
+		   Result r2=new Result(2, "JS",20,"fail");
+		   Result r3=new Result(3, "Rest",50,"pass");
+		   Result r4=new Result(4, "Node",30,"fail");
+		 		 
+		   resultMap.put(1,r1);
+		   resultMap.put(2,r2);
+		   resultMap.put(3,r3);
+		   resultMap.put(4,r4);
+		
+	}
+	
+	public Result getResultById(int id){
+		Result r=resultMap.get(id);
+		return r;
+	}
+
+
+
+	public List<Result> getResults(){
+	
+		List<Result> tests=new ArrayList<Result>(resultMap.values());
+		return tests;
+	}
+
+	public List<Result> addResults(Result test){
+		resultMap.put(resultMap.size()+1,test);
+		List<Result> r=new ArrayList<Result>(resultMap.values());
+		return r;
+	}
+	
+	public List<Result> updateResults(Result test){
+		resultMap.put(test.getId(),test);
+		List<Result> r=new ArrayList<Result>(resultMap.values());
+		return r;
+	}
+
+	public List<Result> deleteResults(int id){
+		resultMap.remove(id);
+		List<Result> r=new ArrayList<Result>(resultMap.values());
+		return r;
+	}
+}

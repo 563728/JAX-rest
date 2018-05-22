@@ -1,0 +1,66 @@
+package com.result.controller;
+
+import java.util.List;
+
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.MatrixParam;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import com.result.pojo.Result;
+import com.result.services.ResultServices;
+
+
+@Path("/assess")
+public class ResultController {
+	
+	ResultServices resultServices=new ResultServices();
+	
+	@GET
+	@Path("/getAll")
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	public List<Result> getResults(){
+		
+		List<Result> r=resultServices.getResults();
+		return r;
+	}
+	
+	@GET
+	@Path("/{id}")
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	public Result getResultById(@PathParam("id") int id){
+		Result r=resultServices.getResultById(id);
+		return r;
+	}
+
+	@POST
+	@Path("/add")
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	public List<Result> addResults(Result test){
+		List<Result> r=resultServices.addResults(test);
+		return r;
+	}
+	
+	@PUT
+	@Path("/update")
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+
+	public List<Result> updateResults(Result test){
+		List<Result> r=resultServices.updateResults(test);
+		return r;
+	}
+	
+	@DELETE
+	@Path("/delete")
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+
+	public List<Result> deleteResults(@MatrixParam("id")int id){
+		List<Result> r=resultServices.deleteResults(id);
+		return r;
+	}
+}

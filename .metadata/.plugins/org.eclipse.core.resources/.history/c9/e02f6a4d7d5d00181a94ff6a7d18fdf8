@@ -1,0 +1,9 @@
+package com.test.controller;
+
+
+@path("/assess")
+public class TestController {
+	
+	
+
+}

@@ -1,0 +1,61 @@
+package com.result.services;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.ws.rs.PathParam;
+
+import com.result.pojo.Result;
+
+public class ResultServices {
+	
+	static HashMap<Integer,Result> testMap=new HashMap<Integer,Result>();
+	
+		
+	public ResultServices() {
+		super();
+		
+		   Result t1=new Result(1, "Java",80);
+		   Result t2=new Result(2, "JS",60);
+		   Result t3=new Result(3, "Rest",50);
+		   Result t4=new Result(4, "Node",50);
+		 		 
+		   testMap.put(1,t1);
+		   testMap.put(2,t2);
+		   testMap.put(3,t3);
+		   testMap.put(4,t4);
+		
+	}
+	
+	public Result getTestById(int id){
+		Result t=testMap.get(id);
+		return t;
+	}
+
+
+
+	public List<Result> getTests(){
+	
+		List<Result> tests=new ArrayList<Result>(testMap.values());
+		return tests;
+	}
+
+	public List<Result> addTests(Result test){
+		testMap.put(testMap.size()+1,test);
+		List<Result> t=new ArrayList<Result>(testMap.values());
+		return t;
+	}
+	
+	public List<Result> updateTests(Result test){
+		testMap.put(test.getId(),test);
+		List<Result> t=new ArrayList<Result>(testMap.values());
+		return t;
+	}
+
+	public List<Result> deleteTests(int id){
+		testMap.remove(id);
+		List<Result> t=new ArrayList<Result>(testMap.values());
+		return t;
+	}
+}
