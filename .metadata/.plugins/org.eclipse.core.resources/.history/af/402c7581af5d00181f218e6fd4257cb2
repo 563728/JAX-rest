@@ -1,0 +1,37 @@
+package com.result.dao;
+
+import org.bson.Document;
+import org.codehaus.jackson.map.ObjectMapper;
+
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import com.result.pojo.Result;
+
+public class ResultMongoDao {
+	
+	MongoClient mongoClient=null;
+	ObjectMapper mapper;
+	MongoCollection<Document> collection=null;
+	
+	public void connect(){
+		mongoClient=new MongoClient();
+		MongoDatabase db= mongoClient.getDatabase("results");
+		System.out.println("connecting to results db!!");
+		
+		collection=db.getCollection("details");
+		System.out.println("collections" +collection);
+				
+	}
+	
+	public void disConnect(){
+		mongoClient.close();
+	}
+	
+	public void insertResult(){
+		connect();
+		
+		Result result=new Result();
+	}
+
+}

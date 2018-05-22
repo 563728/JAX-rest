@@ -1,0 +1,95 @@
+package com.result.dao;
+
+import java.io.IOException;
+
+import org.bson.Document;
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
+
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import com.result.pojo.Result;
+
+public class ResultMongoDao {
+	
+	MongoClient mongoClient=null;
+	ObjectMapper mapper;
+	String pojoToJson;
+	Document doc;
+	MongoCollection<Document> collection=null;
+	
+	public void connect(){
+		mongoClient=new MongoClient();
+		MongoDatabase db= mongoClient.getDatabase("results");
+		System.out.println("connecting to results db!!");
+		
+		collection=db.getCollection("details");
+		System.out.println("collections" +collection);
+				
+	}
+	
+	public void disconnect(){
+		mongoClient.close();
+	}
+	
+	public void insertResult(){
+		connect();
+		
+		Result result=new Result();
+		result.setId(6);
+		result.setName(".NET");
+		result.setScore(60);
+		result.setStatus("pass");
+		
+		mapper=new ObjectMapper();
+		
+			try {
+				pojoToJson=mapper.writeValueAsString(result);
+			} catch (JsonGenerationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JsonMappingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+			doc = Document.parse(pojoToJson);
+			collection.insertOne(doc);
+			disconnect();
+	}
+	
+	public void insertResultNew(Result result){
+		connect();
+		
+		Result result=new Result();
+		result.setId(6);
+		result.setName(".NET");
+		result.setScore(60);
+		result.setStatus("pass");
+		
+		mapper=new ObjectMapper();
+		
+			try {
+				pojoToJson=mapper.writeValueAsString(result);
+			} catch (JsonGenerationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JsonMappingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+			doc = Document.parse(pojoToJson);
+			collection.insertOne(doc);
+			disconnect();
+	}
+
+}

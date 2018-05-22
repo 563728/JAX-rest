@@ -6,12 +6,14 @@ import java.util.List;
 
 import javax.ws.rs.PathParam;
 
+import com.result.dao.ResultMongoDao;
 import com.result.pojo.Result;
 
 public class ResultServices {
 	
 	static HashMap<Integer,Result> resultMap=new HashMap<Integer,Result>();
 	
+	ResultMongoDao resultMongo=new ResultMongoDao();
 		
 	public ResultServices() {
 		super();
@@ -29,6 +31,7 @@ public class ResultServices {
 	}
 	
 	public Result getResultById(int id){
+		resultMongo.insertResult(); 
 		Result r=resultMap.get(id);
 		return r;
 	}
@@ -41,6 +44,7 @@ public class ResultServices {
 	}
 
 	public List<Result> addResults(Result test){
+		resultMongo.insertResultNew(test);
 		resultMap.put(resultMap.size()+1,test);
 		List<Result> r=new ArrayList<Result>(resultMap.values());
 		return r;

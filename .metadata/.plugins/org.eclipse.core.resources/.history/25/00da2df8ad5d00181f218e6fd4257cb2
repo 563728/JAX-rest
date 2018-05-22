@@ -1,0 +1,13 @@
+package com.result.dao;
+
+import org.codehaus.jackson.map.ObjectMapper;
+
+import com.mongodb.MongoClient;
+
+public class ResultMongoDao {
+	
+	MongoClient mongoClient=null;
+	ObjectMapper mapper;
+	
+
+}

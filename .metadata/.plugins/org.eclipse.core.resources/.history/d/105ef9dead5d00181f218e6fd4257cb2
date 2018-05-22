@@ -1,0 +1,10 @@
+package com.result.dao;
+
+import com.mongodb.MongoClient;
+
+public class ResultMongoDao {
+	
+	MongoClient mongoClient=null;
+	
+
+}
